@@ -1,0 +1,53 @@
+<ion-view cache-view="false">
+	<ion-nav-title>Resultado da Pesquisa</ion-nav-title>
+	<ion-content>
+		<div id="map" data-tap-disabled="true"></div>
+		<br><br>
+		<div class="list card" ng-if="isCardVisivel">
+			<a class="item item-icon-left">
+			  <i class="icon ion-home"></i>
+			  	Unidade: {{dataView.unidade}}
+			</a>
+			<a class="item item-icon-left">
+			  <i class="icon ion-ios-medical"></i>
+			  	Medicamento : {{dataView.nome}}
+			</a>
+			<a class="item item-icon-left">
+			  <i class="icon ion-android-done"></i>
+			  Quantidade em estoque: {{dataView.quantidade}}
+			</a>
+		</div>
+		<div class="card">
+			<div class="item item-text-wrap">
+		  		{{mensagem}}
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col col-100">
+				<ion-list>
+		            <ion-item class="item item-avatar" ng-if="isVisivel">
+		              <ion-option-button ng-click="solicitarRemedio()" class="button-assertive">Solicitar</ion-option-button>
+		              <h2>Arraste para dar início a solicitação!</h2>
+		            </ion-item>
+		          </ion-list>
+			</div>
+		</div>
+
+          <div class="list card" ng-repeat="register in listAllRegisters" ng-if="isCardIsVisivel">
+	          <a class="item item-icon-left">
+				  <i class="icon ion-home"></i>
+				  	Unidade: {{register.unidade}} - {{register.endereco}} {{register.bairro}}
+				</a>
+				<a class="item item-icon-left">
+				  <i class="icon ion-ios-medical"></i>
+				  	Medicamento : {{register.nome}}
+				</a>
+				<a class="item item-icon-left">
+				  <i class="icon ion-android-done"></i>
+				  Quantidade em estoque: {{register.quantidade}}
+				</a>
+          </div>
+
+	</ion-content>
+</ion-view>
